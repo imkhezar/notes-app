@@ -3,7 +3,7 @@ const chalk = require('chalk')
 const yargs= require('yargs')
 //const { require } = require('yargs')
 const fs = require('fs')
-const { addNotes ,removeNote,readNotes} = require('./notes')
+const { addNotes ,removeNote,readNotes,listNotes} = require('./notes')
 const { title } = require('process')
 const { demandOption } = require('yargs')
 //require('./notes')
@@ -64,7 +64,7 @@ yargs.command({
     command: 'list',
     describe: 'lists of notes',
     handler : function () {
-        console.log(' Lists of  notes')
+        listNotes()
     }
 })
 

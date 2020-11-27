@@ -52,6 +52,14 @@ const readNotes = function(){
     
 }
 
+//List of all notes design with chalk
+
+const listNotes = function(){
+    const myNotes= loadNotes()
+    myNotes.forEach(element => {
+        console.log(chalk.blueBright.inverse('Title: '+element.title)+'\t'+chalk.redBright.inverse('Body '+element.body))
+    });
+}
 
 
 //loads notes return JSON notes data
@@ -81,5 +89,6 @@ module.exports = {
     getNotes: getNotes,
     addNotes: addNotes,
     removeNote: removeNote,
-    readNotes: readNotes
+    readNotes: readNotes,
+    listNotes: listNotes
 }
