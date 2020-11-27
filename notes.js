@@ -1,10 +1,7 @@
-//const { require } = require("yargs")
-
 const fs = require('fs')
 const chalk=require('chalk')
 
 //adding notes
-
 const addNotes = function(title,body){
     const notes = loadNotes()
     
@@ -47,8 +44,18 @@ const removeNote= function (title){
 
 //reading notes and print in console
 
-const readNotes = function(){
-    return loadNotes()
+const readNotes = (title) =>{
+    const notes=loadNotes()
+    const foundedNotes = notes.find((note)=> note.title===title)
+    //console.log(foundedNotes)
+    if(foundedNotes){
+    console.log(chalk.bgWhite.black('Notes found!'))
+    console.log(chalk.greenBright.inverse('Title '+foundedNotes.title))
+    console.log('Body '+foundedNotes.body)
+    }
+    else{
+        console.log(chalk.red.inverse('No Result Found!'))
+    }
     
 }
 
