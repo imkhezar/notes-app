@@ -73,12 +73,14 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Reads commonds to read notes',
-    builder: {
-      notesView: 'Reading Data from JSON'
-
-    },
+   /* builder:{
+        title:{
+            describe: 'Title of notes',
+            demandOption:true,
+            type:'string'
+        }*/
     handler: function () {
-        readNotes()
+       console.log( readNotes())
 
     }
 })

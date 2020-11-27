@@ -48,12 +48,11 @@ const removeNote= function (title){
 //reading notes and print in console
 
 const readNotes = function(){
-    console.log('reading notes')
-    const notes=loadNotes()
-    const noteToShow = function(notes){
-        console.log('Title'+notes.title+'body'+body)
-    }
+    return loadNotes()
+    
 }
+
+
 
 //loads notes return JSON notes data
 const loadNotes = function(){
