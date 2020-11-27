@@ -2,14 +2,9 @@ const fs = require('fs')
 const chalk=require('chalk')
 
 //adding notes
-const addNotes = function(title,body){
+const addNotes = (title,body)=>{
     const notes = loadNotes()
-    
-
-    const duplicateNotes =notes.filter(function (note){
-        return note.title===title
-    })
-
+    const duplicateNotes =notes.filter((note) => note.title===title)
     if(duplicateNotes.length===0){
         notes.push({
             title:title,
@@ -21,12 +16,9 @@ const addNotes = function(title,body){
     else{
         console.log(chalk.bgRed.white('Already Exisit, try differnt Title'))
     }
-   
-
-
-}
+  }
+  
 // Removing Notes 
-
 const removeNote= function (title){
     const notes =loadNotes()
     console.log(notes.length)
