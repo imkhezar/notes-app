@@ -17,15 +17,11 @@ const addNotes = (title,body)=>{
         console.log(chalk.bgRed.white('Already Exisit, try differnt Title'))
     }
   }
-  
+
 // Removing Notes 
-const removeNote= function (title){
+const removeNote= (title)=>{
     const notes =loadNotes()
-    console.log(notes.length)
-    const notesToKeep = notes.filter(function (note) {
-        return note.title !== title
-    })
-    console.log(notesToKeep.length)
+    const notesToKeep = notes.filter((note)=> note.title !== title)
     if (notes.length > notesToKeep.length) {
         console.log(chalk.green.inverse('Note removed!'))
         saveNotes(notesToKeep)
@@ -35,11 +31,9 @@ const removeNote= function (title){
 }
 
 //reading notes and print in console
-
 const readNotes = (title) =>{
     const notes=loadNotes()
     const foundedNotes = notes.find((note)=> note.title===title)
-    //console.log(foundedNotes)
     if(foundedNotes){
     console.log(chalk.bgWhite.black('Notes found!'))
     console.log(chalk.greenBright.inverse('Title '+foundedNotes.title))
@@ -52,7 +46,6 @@ const readNotes = (title) =>{
 }
 
 //List of all notes design with chalk
-
 const listNotes = function(){
     const myNotes= loadNotes()
     myNotes.forEach(element => {
@@ -60,7 +53,7 @@ const listNotes = function(){
     });
 }
 
-
+//Processing areas for Applictions, means some function that will help other function to process
 //loads notes return JSON notes data
 const loadNotes = function(){
     try{
@@ -78,14 +71,8 @@ const saveNotes = function(notes){
     fs.writeFileSync('notes.json',dataJSON)
 }
 
-const getNotes= function(){
-    return 'Your Notes'
-}
-
-
-
 module.exports = {
-    getNotes: getNotes,
+
     addNotes: addNotes,
     removeNote: removeNote,
     readNotes: readNotes,
